@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """ function that add two float """
 def add(a:float, b:float) -> float:
     """_summary_
@@ -9,4 +10,4 @@ def add(a:float, b:float) -> float:
     Returns:
         float: _description_
     """
-    return a+b
+    return a + b
