@@ -2,7 +2,7 @@
 """ function that add two float """
 
 
-def add(a:float, b:float) -> float:
+def add(a: float, b: float) -> float:
     """_summary_
 
     Args:
