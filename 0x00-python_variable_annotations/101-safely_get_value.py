@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 from typing import Any, Mapping, TypeVar, Union
-# Définir une variable de type générique T
 T = TypeVar('T')
+""" Définir une variable de type générique T """
 
 
-# Annoter les paramètres et le type de retour de la fonction
 def safely_get_value(dct: Mapping[Any, Any],
                      key: Any,
                      default: Union[T, None] = None) -> Union[Any, T]:
