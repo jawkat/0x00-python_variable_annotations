@@ -2,9 +2,10 @@
 """ task 0 """
 import asyncio
 import random
+from typing import Generator
 
 
-async def async_generator() -> float:
+async def async_generator() -> Generator[float, nonetype, None]:
     """_summary_
 
     Yields:
@@ -12,4 +13,4 @@ async def async_generator() -> float:
     """
     for _ in range(10):
         await asyncio.sleep(1)
-        yield random.uniform(0,10)
+        yield random.uniform(0, 10)
