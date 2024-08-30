@@ -37,3 +37,25 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         with self.assertRaises(expected):
             access_nested_map(dict, path)
+
+class TestMemoize(unittest.TestCase):
+    """to mock a_method. Test that when calling a_property twice,
+    """
+    def test_memoize(self):
+        """to mock a_method. Test that when calling a_property twice"""
+
+        class TestClass:
+
+            def a_method(self):
+                return 42
+
+            @memoize
+            def a_property(self):
+                return self.a_method()
+
+        with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
+            inst = TestClass()
+            inst.a_property
+            inst.a_property
+
+            mock_method.assert_called_once()
