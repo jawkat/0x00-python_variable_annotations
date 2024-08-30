@@ -4,8 +4,7 @@ import unittest
 from parameterized import parameterized
 from unittest import mock
 from unittest.mock import patch
-from utils import access_nested_map, get_json,memoize
-
+from utils import access_nested_map, get_json, memoize
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -16,7 +15,6 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a", "b"), 2),
 
         ])
-
     def test_access_nested_map(self, dict, path, expected):
         """Test the access of a nested map."""
         result = access_nested_map(dict, path)
@@ -26,7 +24,8 @@ class TestAccessNestedMap(unittest.TestCase):
         ({}, ("a",), KeyError, 'a'),
         ({"a": 1}, ("a", "b"), KeyError, 'b')
     ])
-    def test_access_nested_map_exception(self, dict, path, expected, expected_key):
+    def test_access_nested_map_exception(self,
+                                         dict, path, expected, expected_key):
         """_summary_
 
         Args:
@@ -37,6 +36,7 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         with self.assertRaises(expected):
             access_nested_map(dict, path)
+
 
 class TestMemoize(unittest.TestCase):
     """to mock a_method. Test that when calling a_property twice,
@@ -53,7 +53,8 @@ class TestMemoize(unittest.TestCase):
             def a_property(self):
                 return self.a_method()
 
-        with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
+        with patch.object(TestClass, 'a_method',
+                          return_value=42) as mock_method:
             inst = TestClass()
             inst.a_property
             inst.a_property
